@@ -115,6 +115,7 @@ atom-text-editor, :host {
     color: @light-blue;
   }
 
+  // escaped constants: '\n'
   &.escape {
     color: @green;
   }
@@ -123,6 +124,11 @@ atom-text-editor, :host {
 .entity {
   &.name {
     color: @purple;
+
+    // HTML tags: <html>
+    &.tag {
+      color: @green;
+    }
   }
 
   &.other.attribute-name {
