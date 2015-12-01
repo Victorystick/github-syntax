@@ -45,6 +45,20 @@ atom-text-editor, :host {
     border: 1px solid @syntax-result-marker-color-selected;
   }
 
+  .markup {
+    &.inserted {
+      color: green;
+    }
+
+    &.changed {
+      color: orange;
+    }
+
+    &.deleted {
+      color: @bright-red;
+    }
+  }
+
   .gfm {
     .markup {
       &.heading {
@@ -67,7 +81,7 @@ atom-text-editor, :host {
     }
 
     .raw {
-      color: @blue;
+      color: @light-blue;
     }
 
     .variable.list {
