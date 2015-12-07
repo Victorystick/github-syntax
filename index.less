@@ -47,11 +47,11 @@ atom-text-editor, :host {
 
   .markup {
     &.inserted {
-      color: green;
+      color: @green;
     }
 
     &.changed {
-      color: orange;
+      color: @yellow;
     }
 
     &.deleted {
@@ -85,7 +85,7 @@ atom-text-editor, :host {
     }
 
     .variable.list {
-      color: @pink;
+      color: @orange;
       font-weight: bold;
     }
 
@@ -104,7 +104,7 @@ atom-text-editor, :host {
 }
 
 .comment {
-  color: @brown;
+  color: @light-gray;
 }
 
 .constant {
@@ -184,8 +184,11 @@ atom-text-editor, :host {
   }
 }
 
-.variable.language {
-  color: @orange;
+.variable {
+  &.assignment,
+  &.language {
+    color: @orange;
+  }
 }
 
 // Jade syntax
