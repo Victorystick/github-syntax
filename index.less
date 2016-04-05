@@ -113,7 +113,9 @@ atom-text-editor, :host {
   &.character,
   &.language,
   &.numeric,
-  &.other {
+  &.other,
+  &.variable,
+  {
     color: @light-blue;
   }
 
@@ -167,6 +169,12 @@ atom-text-editor, :host {
   &.class {
     color: @purple;
   }
+
+  // because Java class bodies are otherwise colored purple
+  &.class.body.java,
+  {
+    color: @syntax-text-color;
+  }
 }
 
 .variable {
@@ -180,6 +188,24 @@ atom-text-editor, :host {
 // var, let, const
 .storage {
   color: @red;
+
+  // in Java
+  &.java {
+    // imports, packages and types aren't highlighted
+    &.modifier.import,
+    &.modifier.package,
+    &.type,
+    {
+      color: @syntax-text-color;
+    }
+
+    // but annotations and primitive types are
+    &.type.annotation,
+    &.primitive,
+    {
+      color: @red;
+    }
+  }
 }
 
 // all sorts of quotes: "", '', ``
@@ -201,7 +227,9 @@ atom-text-editor, :host {
 // language specific variables: this
 .variable {
   &.assignment,
-  &.language {
+  &.language,
+  &.parameter.java,
+  {
     color: @orange;
   }
 }
